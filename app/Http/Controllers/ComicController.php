@@ -53,8 +53,17 @@ class ComicController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
+    // public function show(Comic $comic)
     {
-        //
+        // dd('Ciao sono lo show');
+        $comic = Comic::findOrFail($id);
+        // dd($comic);
+
+        $data = [
+            'comic' => $comic
+        ];
+
+        return view('comics.show', $data);
     }
 
     /**
